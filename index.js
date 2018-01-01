@@ -3,6 +3,7 @@ const https = require('https');
 
 const Alexa = require('alexa-sdk');
 
+
 // Lambda関数のメイン処理
 exports.handler = function(event, context, callback) {
     var alexa = Alexa.handler(event, context); // Alexa SDKのインスタンス生成
@@ -241,57 +242,14 @@ var handlers = {
                 }
             };
 
-            Promise.resolve([])
-                .then(function() { getFromAPI(options) })
-                .then(function(result) { lobbyStage(result, timing, rule) })
+            Promise.resolve()
+                .then(() => { getFromAPI(options) })
+                .then((result) => { lobbyStage(result, timing, rule) })
                 .then((message) => {
                     this.response.speak(message);
                     this.emit(':responseReady');
-                });
-            // コールバック関数を設定
-            /*const req = https.request(options, (res) => {
-            	let data = '';
-            	//console.log(options.host + options.path);
-            	res.on('data', (chunk) => {
-            		data += chunk;
-            		//console.log(data)
-            	});
-            	res.on('end', () => {
-            		var json = JSON.parse(data);
-            		var ikaResult = json.result[0];
-            		var now = parseInt(getNow().getTime() / 1000)
-
-            		//console.log(ikaResult);
-            		message += '<p>';
-            		message += timing + 'の' + rule + 'は' + ikaResult.rule + 'です。</p>';
-            		message += '<p>ステージは、';
-            		for (var i in ikaResult.maps) {
-            			if (i > 0) {
-            				message += '、';
-            			}
-            			message += ikaResult.maps[i];
-            		}
-            		message += 'です。</p>';
-
-            		if (timing == '今') {
-            			var durationMessage = getButtleDuration(ikaResult.end_t + 32400, now, 'end');
-            		} else {
-            			var durationMessage = getButtleDuration(ikaResult.start_t + 32400, now, 'start');
-            		}
-
-            		message += durationMessage;
-            		//console.log(message);
-            		this.emit(':tell', message); // レスポンスの生成
-            	});
-            })
-
-            req.on('error', (e) => {
-            	console.error('problem with request: ' + e.message);
-            	this.emit(':tell', 'エラーが発生しました。申し訳ありませんが、もう一度お試し下さい。エラータイプはRです。');
-            });
-
-            req.end();
-            */
+                })
+                .catch((error) => {console.error(error)});
         }
         // 振分に失敗した場合
         else {
@@ -306,12 +264,12 @@ var handlers = {
 
 function getFromAPI(options) {
     return new Promise(function(resolve, reject) {
-        //console.log(options)
+        console.log('getFromAPI');
+
         var jsonResult;
 
         const req = https.request(options, (res) => {
             let data = '';
-console.log('test')
             res.on('data', (chunk) => {
                 data += chunk;
             });
@@ -324,6 +282,7 @@ console.log('test')
         req.on('error', (e) => {
             console.error('problem with request: ' + e.message);
             this.emit(':tell', 'APIエラーが発生しました。申し訳ありませんが、もう一度お試し下さい。続けて発生する場合には、開発元へご連絡下さい。');
+            reject(new Error('error'));
         });
         req.end();
 
@@ -333,7 +292,8 @@ console.log('test')
 }
 
 function lobbyStage(json, timing, rule) {
-    console.log(json)
+    console.log('lobbyStage');
+    console.log(json);
     return new Promise(function(resolve, reject) {
         var now = parseInt(getNow().getTime() / 1000)
         var ikaResult = json;
