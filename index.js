@@ -30,24 +30,11 @@ var handlers = {
 			timing = '今';
 		}
 
-		const requestId = this.event.request.requestId;
-		const token = this.event.context.System.apiAccessToken;
-		const endpoint = this.event.context.System.apiEndpoint;
-		const ds = new Alexa.services.DirectiveService();
-
-		const directive = new Alexa.directives.VoicePlayerSpeakDirective(requestId, 'お調べします。');
-		const progressiveResponse = ds.enqueue(directive, endpoint, token)
-			.catch((err) => {
-				// catch API errors so skill processing an continue
-				console.error('problem with request: ' + err.message);
-				console.log(this.event.context.System.apiEndpoint);
-				this.emit(':tell', 'エラーが発生しました。申し訳ありませんが、もう一度お試し下さい。エラータイプはE03です。');
-			});
 		// サーモンランのJSON取得関数
 		const salmonJson = getSalmonJson();
 
 		// Promiseで順次進行
-		Promise.resolve(progressiveResponse)
+		Promise.resolve()
 			.then(() => salmonJson)
 			.then((json) => getSalmonResponseMaker(json, timing))
 			.then((result) => {
@@ -78,21 +65,8 @@ var handlers = {
 		};
 
 		// サーモンラン以外の場合
-		const requestId = this.event.request.requestId;
-		const token = this.event.context.System.apiAccessToken;
-		const endpoint = this.event.context.System.apiEndpoint;
-		const ds = new Alexa.services.DirectiveService();
-
-		const directive = new Alexa.directives.VoicePlayerSpeakDirective(requestId, 'お調べします。');
-		const progressiveResponse = ds.enqueue(directive, endpoint, token)
-			.catch((err) => {
-				// catch API errors so skill processing an continue
-				console.error('problem with request: ' + err.message);
-				console.log(this.event.context.System.apiEndpoint);
-				this.emit(':tell', 'エラーが発生しました。申し訳ありませんが、もう一度お試し下さい。エラータイプはE01です。');
-			});
 		const lobbyJson = getLobbyJson(apiRule, apiTiming, rule, timing);
-		Promise.resolve(progressiveResponse)
+		Promise.resolve()
 			.then(() => lobbyJson)
 			.then((message) => {
 				console.log(message);
