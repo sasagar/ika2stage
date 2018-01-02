@@ -1,0 +1,23 @@
+{
+  "name": "ika2stage",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sasagar/ika2stage.git"
+  },
+  "author": "Kent&Co.",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sasagar/ika2stage/issues"
+  },
+  "homepage": "https://github.com/sasagar/ika2stage#readme",
+  "description": "",
+  "devDependencies": {
+    "alexa-sdk": "^1.0.24",
+    "request": "^2.83.0"
+  }
+}
