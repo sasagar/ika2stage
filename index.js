@@ -1,7 +1,12 @@
 'use strict';
 const request = require('request');
-
 const Alexa = require('alexa-sdk');
+
+// s3を利用する為の諸々
+const aws = require('aws-sdk');
+aws.config.region = 'ap-northeast-1';
+const bucket = 'ika2stage';
+const s3 = new aws.S3();
 
 // Lambda関数のメイン処理
 exports.handler = function (event, context, callback) {
@@ -18,8 +23,8 @@ var handlers = {
 	},
 	// スキルの使い方を尋ねるインテント
 	'AMAZON.HelpIntent': function () {
-		this.emit(':tell', '今のスプラトゥーン2のステージをお調べします。' +
-			'たとえば、「イカ ツー で、今のガチマッチのステージを教えて」、と聞いて下さい。');
+		this.emit(':tell', 'スプラトゥーン2についてお調べします。' +
+			'たとえば、「イカ ツー で、今のガチマッチのステージを教えて」、「イカ ツー で、次のサーモンランのシフト」、「イカ ツー で、スプラローラーについて教えて」、と聞いて下さい。');
 	},
 	// 対話モデルで定義した、スキル実行するインテント
 	'GetSalmonIntent': function () {
@@ -46,7 +51,10 @@ var handlers = {
 		console.log('salmon');
 	},
 	'GetStageIntent': function () {
-		var rule = this.event.request.intent.slots.Rule.value; // スロットRuleを参照
+		// ステージ情報を教えるIntent
+		var obj = this.event.request.intent.slots.Rule.resolutions.resolutionsPerAuthority[0].values[0];
+		// var rule = this.event.request.intent.slots.Rule.value; // スロットRuleを参照
+		var rule = obj.value.name;
 		var timing = this.event.request.intent.slots.Timing.value; // スロットTimingを参照
 		if (timing === undefined) {
 			timing = '今';
@@ -64,17 +72,203 @@ var handlers = {
 			'次': 'next'
 		};
 
-		// サーモンラン以外の場合
-		const lobbyJson = getLobbyJson(apiRule, apiTiming, rule, timing);
+		// const stageJson = getLobbyJson(apiRule, apiTiming, rule, timing);
+		var stageJson;
+		var imgJson;
 		Promise.resolve()
-			.then(() => lobbyJson)
+			.then(() => getLobbyJson(apiRule, apiTiming, rule, timing))
+			.then((json) => {
+				stageJson = json;
+				return stageJson;
+			})
+			.then((stageJson) => getLobbyMessageMaker(stageJson, rule, timing))
 			.then((message) => {
-				console.log(message);
 				this.response.speak(message);
+			})
+			.then(() => getLobbyImageJson())
+			.then((json) => {
+				imgJson = json[rule];
+			})
+			.then(() => getLobbyCardMaker(stageJson, rule, timing, imgJson))
+			.then((card) => {
+				this.response.cardRenderer(card.title, card.message, card.image);
+				this.emit(':responseReady');
+			});
+	},
+	'GetWeaponDataIntent': function () {
+		var obj = this.event.request.intent.slots.WeaponName.resolutions.resolutionsPerAuthority[0].values[0];
+		// console.log(obj.value.name);
+		// ブキ情報を回答するintent
+		var weaponName = obj.value.name;
+		// var weaponName = this.event.request.intent.slots.WeaponName.value; // スロットRuleを参照
+		var weaponJson;
+
+		var params = {
+			Bucket: bucket,
+			Key: 'weaponData.json'
+		};
+
+		Promise.resolve()
+			.then(() => getWeaponJson(params))
+			.then((json) => {
+				var targetJson = json[weaponName];
+				return targetJson;
+			})
+			.then((json) => {
+				weaponJson = json;
+			})
+			.then(() => getWeaponSpeachMaker(weaponJson, weaponName))
+			.then((message) => {
+				this.response.speak(message);
+			})
+			.then(() => getWeaponCardMaker(weaponJson, weaponName))
+			.then((card) => {
+				this.response.cardRenderer(card.title, card.message, card.image);
 				this.emit(':responseReady');
 			});
 	}
 };
+
+function getWeaponJson (params) {
+	return new Promise((resolve, reject) => {
+		s3.getObject(params, function (err, data) {
+			if (err) {
+				console.log(err, err.stack);
+			} else {
+				var json = JSON.parse(data.Body.toString());
+				resolve(json);
+			}
+		});
+	});
+}
+
+function getWeaponSpeachMaker (json, weaponName) {
+	return new Promise((resolve, reject) => {
+		var weaponData = json;
+		var weaponInstalledTime = new Date(weaponData.released_at);
+		var now = new Date();
+		var splReleaseTime = new Date('2017-07-21T00:00:00Z');
+		/*
+		スプラシューターは、通称スシと呼ばれる事のあるシュータータイプのブキです。
+		サブは○○で、スペシャルは○○です。
+		スペシャルに必要な塗りは180ポイントです。
+		ランク2で開放されるブキで、価格は1800です。
+		○○から導入されています。
+		*/
+		var message = '<p><s>';
+		message += weaponData.speak + 'は、';
+		if (weaponName !== weaponData.common_name[0]) {
+			message += '通称<break time="5ms"/>';
+			for (var i in weaponData.common_name) {
+				if (i > 0) {
+					message += 'や、';
+				}
+				message += weaponData.common_name[i];
+			}
+			message += '<break time="5ms"/>と呼ばれる事のある、';
+		}
+		message += weaponData.type_key + '系<break time="5ms"/>' + weaponData.subtype_key + 'タイプの武器です。</s>';
+		message += '<s>サブは<prosody pitch="high">' + weaponData.sub_key + '</prosody>で、';
+		message += 'スペシャルは<prosody pitch="high">' + weaponData.special_key + '</prosody>です。</s>';
+		message += '<s>スペシャルに必要な塗りは、<prosody pitch="high">';
+		message += weaponData.special_points + 'ポイント</prosody>です。</s></p>';
+		message += '<p><s>ランク<prosody pitch="high">' + weaponData.unlocked_rank + '</prosody>で解放される武器で、';
+		message += '価格は、<prosody pitch="high">' + weaponData.cost + '</prosody>です。</s></p>';
+
+		if (weaponInstalledTime.getTime() === splReleaseTime.getTime()) {
+			message += '<p><s>この武器は、最初から導入されています。</s></p>';
+		} else if (weaponInstalledTime.getTime() <= now.getTime()) {
+			var tmpInstTime = new Date(weaponInstalledTime.getTime() + (9 * 60 * 60 * 1000));
+			var instTime = {
+				'year': tmpInstTime.getFullYear(),
+				'month': tmpInstTime.getMonth() + 1,
+				'date': tmpInstTime.getDate(),
+				'hour': tmpInstTime.getHours()
+			};
+			if (instTime.month < 10) { instTime.month = '0' + instTime.month; }
+			if (instTime.date < 10) { instTime.date = '0' + instTime.date; }
+			message += '<p><s>この武器は、<say-as interpret-as="date">' + instTime.year + instTime.month + instTime.date + '</say-as>';
+			message += '<break time="5ms"/>' + instTime.hour + '時から導入されています。</s></p>';
+		} else {
+			message += '<p><s>この武器は、まだ導入されていません。</s></p>';
+		}
+
+		resolve(message);
+	});
+}
+
+function getWeaponCardMaker (json, weaponName) {
+	return new Promise((resolve, reject) => {
+		var weaponData = json;
+		var weaponInstalledTime = new Date(weaponData.released_at);
+		var now = new Date();
+		var splReleaseTime = new Date('2017-07-21T00:00:00Z');
+		/*
+		タイトル: ブキ情報「スプラシューター」
+		画像: imageからURL取得
+		本文:
+		通称: スシ・スシ
+		---
+		シューター系 シュータータイプ
+		サブ: ○○ / スペシャル: ○○(180pt)
+		---
+		解放ランク: 2 / 価格: 1800
+		---
+		導入時期: 最初から
+		*/
+		var cardTitle = 'ブキ情報 「' + weaponName + '」';
+		var cardImage = {
+			'smallImageUrl': weaponData.images.small,
+			'largeImageUrl': weaponData.images.large
+		};
+		var cardMessage = '';
+
+		if (weaponName !== weaponData.common_name[0]) {
+			cardMessage += '通称: ';
+			for (var i in weaponData.common_name) {
+				if (i > 0) {
+					cardMessage += '・';
+				}
+				cardMessage += weaponData.common_name[i];
+			}
+			cardMessage += '\n';
+			cardMessage += '---\n';
+		}
+		cardMessage += weaponData.type_key + '系 ' + weaponData.subtype_key + 'タイプ\n';
+		cardMessage += 'サブ: ' + weaponData.sub_key + ' / ';
+		cardMessage += 'スペシャル: ' + weaponData.special_key;
+		cardMessage += ' (' + weaponData.special_points + ' pt)\n';
+		cardMessage += '---\n';
+		cardMessage += '解放ランク: ' + weaponData.unlocked_rank + ' / ';
+		cardMessage += '価格: ' + weaponData.cost + '\n';
+		cardMessage += '---\n';
+		cardMessage += '導入時期: ';
+
+		if (weaponInstalledTime.getTime() === splReleaseTime.getTime()) {
+			cardMessage += '最初から';
+		} else if (weaponInstalledTime.getTime() <= now.getTime()) {
+			var tmpInstTime = new Date(weaponInstalledTime.getTime() + (9 * 60 * 60 * 1000));
+			var instTime = {
+				'year': tmpInstTime.getFullYear(),
+				'month': tmpInstTime.getMonth() + 1,
+				'date': tmpInstTime.getDate(),
+				'hour': tmpInstTime.getHours()
+			};
+			cardMessage += instTime.year + '年 ' + instTime.month + '月 ' + instTime.date + '日 ' + instTime.hour + '時から';
+		} else {
+			cardMessage += '未導入';
+		}
+
+		// カードに載せる情報を結合
+		var card = {
+			'title': cardTitle,
+			'message': cardMessage,
+			'image': cardImage
+		};
+
+		resolve(card);
+	});
+}
 
 function getSalmonJson () {
 	return new Promise((resolve, reject) => {
@@ -222,7 +416,6 @@ function getSalmonResponseMaker (json, timing) {
 }
 
 function getLobbyJson (apiRule, apiTiming, rule, timing) {
-	var durationMessage;
 	return new Promise((resolve, reject) => {
 		const options = {
 			url: 'https://spla2.yuu26.com/' + apiRule[rule] + '/' + apiTiming[timing],
@@ -236,29 +429,104 @@ function getLobbyJson (apiRule, apiTiming, rule, timing) {
 		request.get(options, (error, res, data) => {
 			var json = JSON.parse(data);
 			var ikaResult = json.result[0];
-			var now = parseInt(getNow().getTime() / 1000);
-
-			var message = '<p>';
-			message += timing + 'の' + rule + 'は' + ikaResult.rule + 'です。</p>';
-			message += '<p>ステージは、';
-			for (var i in ikaResult.maps) {
-				if (i > 0) {
-					message += '、';
-				}
-				message += ikaResult.maps[i];
-			}
-			message += 'です。</p>';
-
-			if (timing === '今') {
-				durationMessage = getButtleDuration(ikaResult.end_t + 32400, now, 'end');
-			} else {
-				durationMessage = getButtleDuration(ikaResult.start_t + 32400, now, 'start');
-			}
-
-			message += durationMessage;
-			// console.log(message);
-			resolve(message);
+			resolve(ikaResult);
 		});
+	});
+}
+
+function getLobbyMessageMaker (json, rule, timing) {
+	var durationMessage;
+
+	return new Promise((resolve, reject) => {
+		var ikaResult = json;
+		var now = parseInt(getNow().getTime() / 1000);
+
+		var message = '<p>';
+		message += timing + 'の' + rule + 'は' + ikaResult.rule + 'です。</p>';
+		message += '<p>ステージは、';
+		for (var i in ikaResult.maps) {
+			if (i > 0) {
+				message += '、';
+			}
+			message += ikaResult.maps[i];
+		}
+		message += 'です。</p>';
+
+		if (timing === '今') {
+			durationMessage = getButtleDuration(ikaResult.end_t + 32400, now, 'end');
+		} else {
+			durationMessage = getButtleDuration(ikaResult.start_t + 32400, now, 'start');
+		}
+
+		message += durationMessage;
+		// console.log(message);
+		resolve(message);
+	});
+}
+
+function getLobbyImageJson () {
+	var imageJson;
+	var params = {
+		Bucket: bucket,
+		Key: 'stageImage.json'
+	};
+
+	return new Promise((resolve, reject) => {
+		s3.getObject(params, function (err, data) {
+			if (err) {
+				console.log(err, err.stack);
+			} else {
+				imageJson = JSON.parse(data.Body.toString());
+				resolve(imageJson);
+			}
+		});
+	});
+}
+
+function getLobbyCardMaker (json, rule, timing, imgJson) {
+	var imageJson = imgJson;
+	var ikaResult = json;
+
+	return new Promise((resolve, reject) => {
+		// カードに載せるイメージ
+		var cardImage = {
+			'smallImageUrl': imageJson.images.small,
+			'largeImageUrl': imageJson.images.large
+		};
+
+		var cardTitle = timing + 'の' + rule;
+
+		/*
+		ルール: ナワバリバトル
+		---
+		ステージ情報:
+		・ハコフグ倉庫
+		・ザトウマーケット
+		---
+		1月 3日 19:00 ～ 1月 3日 21:00
+		*/
+		var cardMessage = '';
+		cardMessage += 'ルール: ' + ikaResult.rule + '\n';
+		cardMessage += '---\n';
+		cardMessage += 'ステージ情報:\n';
+		for (var i in ikaResult.maps) {
+			cardMessage += '・' + ikaResult.maps[i] + '\n';
+		}
+		cardMessage += '---\n';
+
+		var start = getCardFormatDate(ikaResult.start_t + 32400);
+		var end = getCardFormatDate(ikaResult.end_t + 32400);
+
+		cardMessage += start + ' ～ ' + end;
+
+		// カードに載せる情報を結合
+		var card = {
+			'title': cardTitle,
+			'message': cardMessage,
+			'image': cardImage
+		};
+
+		resolve(card);
 	});
 }
 
@@ -346,4 +614,22 @@ function getButtleDuration (targetVal, nowVal, checkVal) {
 	}
 
 	return comingMessage;
+}
+
+function getCardFormatDate (targetVal) {
+	var formatDate;
+	var targetDate = new Date(targetVal * 1000);
+	var targetTime = {
+		'month': targetDate.getMonth() + 1,
+		'date': targetDate.getDate(),
+		'hour': targetDate.getHours(),
+		'minute': targetDate.getMinutes()
+	};
+	if (targetTime.minute < 10) {
+		targetTime.minute = '0' + targetTime.minute;
+	}
+
+	formatDate = targetTime.month + '月 ' + targetTime.date + '日 ' + targetTime.hour + ':' + targetTime.minute;
+
+	return formatDate;
 }

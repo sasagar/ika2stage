@@ -19,8 +19,8 @@
     },
     "released_at": "2017-08-05T02:00:00Z",
 		"images": {
-			"small": "small/IMG_0205.jpg",
-			"large": "large/IMG_0205.jpg"
+			"small": "https://s3-ap-northeast-1.amazonaws.com/ika2stage/images/weapons/small/IMG_0205.jpg",
+			"large": "https://s3-ap-northeast-1.amazonaws.com/ika2stage/images/weapons/large/IMG_0205.jpg"
 		}
   },
   "わかばシューター": {
@@ -43,8 +43,8 @@
     },
     "released_at": "2017-07-21T00:00:00Z",
 		"images": {
-			"small": "small/IMG_0159.jpg",
-			"large": "large/IMG_0159.jpg"
+			"small": "https://s3-ap-northeast-1.amazonaws.com/ika2stage/images/weapons/small/IMG_0159.jpg",
+			"large": "https://s3-ap-northeast-1.amazonaws.com/ika2stage/images/weapons/large/IMG_0159.jpg"
 		}
   },
   "もみじシューター": {
@@ -67,8 +67,8 @@
     },
     "released_at": "2017-09-09T02:00:00Z",
 		"images": {
-			"small": "small/IMG_0207.jpg",
-			"large": "large/IMG_0207.jpg"
+			"small": "https://s3-ap-northeast-1.amazonaws.com/ika2stage/images/weapons/small/IMG_0207.jpg",
+			"large": "https://s3-ap-northeast-1.amazonaws.com/ika2stage/images/weapons/large/IMG_0207.jpg"
 		}
   },
   "シャープマーカー": {
@@ -91,12 +91,12 @@
     },
     "released_at": "2017-07-21T00:00:00Z",
 		"images": {
-			"small": "small/IMG_0197.jpg",
-			"large": "large/IMG_0197.jpg"
+			"small": "https://s3-ap-northeast-1.amazonaws.com/ika2stage/images/weapons/small/IMG_0197.jpg",
+			"large": "https://s3-ap-northeast-1.amazonaws.com/ika2stage/images/weapons/large/IMG_0197.jpg"
 		}
   },
   "プロモデラーMG": {
-		"speak": "プロモデラーMG",
+		"speak": "プロモデラー<say-as interpret-as=\"characters\">MG</say-as>",
 		"common_name": ["銀モデ"],
     "key": "aerospray_mg",
     "type_key": "シューター",
@@ -115,12 +115,12 @@
     },
     "released_at": "2017-07-21T00:00:00Z",
 		"images": {
-			"small": "small/IMG_0173.jpg",
-			"large": "large/IMG_0173.jpg"
+			"small": "https://s3-ap-northeast-1.amazonaws.com/ika2stage/images/weapons/small/IMG_0173.jpg",
+			"large": "https://s3-ap-northeast-1.amazonaws.com/ika2stage/images/weapons/large/IMG_0173.jpg"
 		}
   },
   "プロモデラーRG": {
-		"speak": "プロモデラーRG",
+		"speak": "プロモデラー<say-as interpret-as=\"characters\">RG</say-as>",
 		"common_name": ["金モデ"],
     "key": "aerospray_rg",
     "type_key": "シューター",
@@ -139,8 +139,8 @@
     },
     "released_at": "2017-07-21T00:00:00Z",
 		"images": {
-			"small": "small/IMG_0201.jpg",
-			"large": "large/IMG_0201.jpg"
+			"small": "https://s3-ap-northeast-1.amazonaws.com/ika2stage/images/weapons/small/IMG_0201.jpg",
+			"large": "https://s3-ap-northeast-1.amazonaws.com/ika2stage/images/weapons/large/IMG_0201.jpg"
 		}
   },
   "スプラシューター": {
@@ -163,8 +163,8 @@
     },
     "released_at": "2017-07-21T00:00:00Z",
 		"images": {
-			"small": "small/IMG_0160.jpg",
-			"large": "large/IMG_0160.jpg"
+			"small": "https://s3-ap-northeast-1.amazonaws.com/ika2stage/images/weapons/small/IMG_0160.jpg",
+			"large": "https://s3-ap-northeast-1.amazonaws.com/ika2stage/images/weapons/large/IMG_0160.jpg"
 		}
   },
   "スプラシューターコラボ": {
@@ -187,8 +187,8 @@
     },
     "released_at": "2017-07-21T00:00:00Z",
 		"images": {
-			"small": "small/IMG_0166.jpg",
-			"large": "large/IMG_0166.jpg"
+			"small": "https://s3-ap-northeast-1.amazonaws.com/ika2stage/images/weapons/small/IMG_0166.jpg",
+			"large": "https://s3-ap-northeast-1.amazonaws.com/ika2stage/images/weapons/large/IMG_0166.jpg"
 		}
   },
   "ヒーローシューターレプリカ": {
@@ -211,8 +211,8 @@
     },
     "released_at": "2017-07-21T00:00:00Z",
 		"images": {
-			"small": "small/IMG_0161.jpg",
-			"large": "large/IMG_0161.jpg"
+			"small": "https://s3-ap-northeast-1.amazonaws.com/ika2stage/images/weapons/small/IMG_0161.jpg",
+			"large": "https://s3-ap-northeast-1.amazonaws.com/ika2stage/images/weapons/large/IMG_0161.jpg"
 		}
   },
   ".52ガロン": {
@@ -235,8 +235,8 @@
     },
     "released_at": "2017-07-21T00:00:00Z",
 		"images": {
-			"small": "small/IMG_0184.jpg",
-			"large": "large/IMG_0184.jpg"
+			"small": "https://s3-ap-northeast-1.amazonaws.com/ika2stage/images/weapons/small/IMG_0184.jpg",
+			"large": "https://s3-ap-northeast-1.amazonaws.com/ika2stage/images/weapons/large/IMG_0184.jpg"
 		}
   },
   "N-ZAP85": {
@@ -259,8 +259,8 @@
     },
     "released_at": "2017-07-21T00:00:00Z",
 		"images": {
-			"small": "small/IMG_0177.jpg",
-			"large": "large/IMG_0177.jpg"
+			"small": "https://s3-ap-northeast-1.amazonaws.com/ika2stage/images/weapons/small/IMG_0177.jpg",
+			"large": "https://s3-ap-northeast-1.amazonaws.com/ika2stage/images/weapons/large/IMG_0177.jpg"
 		}
   },
   "N-ZAP89": {
@@ -283,8 +283,8 @@
     },
     "released_at": "2017-12-09T02:00:00Z",
 		"images": {
-			"small": "small/IMG_0209.jpg",
-			"large": "large/IMG_0209.jpg"
+			"small": "https://s3-ap-northeast-1.amazonaws.com/ika2stage/images/weapons/small/IMG_0209.jpg",
+			"large": "https://s3-ap-northeast-1.amazonaws.com/ika2stage/images/weapons/large/IMG_0209.jpg"
 		}
   },
   "プライムシューター": {
@@ -307,8 +307,8 @@
     },
     "released_at": "2017-07-21T00:00:00Z",
 		"images": {
-			"small": "small/IMG_0178.jpg",
-			"large": "large/IMG_0178.jpg"
+			"small": "https://s3-ap-northeast-1.amazonaws.com/ika2stage/images/weapons/small/IMG_0178.jpg",
+			"large": "https://s3-ap-northeast-1.amazonaws.com/ika2stage/images/weapons/large/IMG_0178.jpg"
 		}
   },
   "プライムシューターコラボ": {
@@ -331,8 +331,8 @@
     },
     "released_at": "2017-09-02T02:00:00Z",
 		"images": {
-			"small": "small/IMG_0209.jpg",
-			"large": "large/IMG_0209.jpg"
+			"small": "https://s3-ap-northeast-1.amazonaws.com/ika2stage/images/weapons/small/IMG_0209.jpg",
+			"large": "https://s3-ap-northeast-1.amazonaws.com/ika2stage/images/weapons/large/IMG_0209.jpg"
 		}
   },
   ".96ガロン": {
@@ -355,8 +355,8 @@
     },
     "released_at": "2017-07-21T00:00:00Z",
 		"images": {
-			"small": "small/IMG_0193.jpg",
-			"large": "large/IMG_0193.jpg"
+			"small": "https://s3-ap-northeast-1.amazonaws.com/ika2stage/images/weapons/small/IMG_0193.jpg",
+			"large": "https://s3-ap-northeast-1.amazonaws.com/ika2stage/images/weapons/large/IMG_0193.jpg"
 		}
   },
   "ジェットスイーパー": {
@@ -379,8 +379,8 @@
     },
     "released_at": "2017-07-21T00:00:00Z",
 		"images": {
-			"small": "small/IMG_0188.jpg",
-			"large": "large/IMG_0188.jpg"
+			"small": "https://s3-ap-northeast-1.amazonaws.com/ika2stage/images/weapons/small/IMG_0188.jpg",
+			"large": "https://s3-ap-northeast-1.amazonaws.com/ika2stage/images/weapons/large/IMG_0188.jpg"
 		}
   },
   "ジェットスイーパーカスタム": {
@@ -403,8 +403,8 @@
     },
     "released_at": "2017-11-03T02:00:00Z",
 		"images": {
-			"small": "small/IMG_0210.jpg",
-			"large": "large/IMG_0210.jpg"
+			"small": "https://s3-ap-northeast-1.amazonaws.com/ika2stage/images/weapons/small/IMG_0210.jpg",
+			"large": "https://s3-ap-northeast-1.amazonaws.com/ika2stage/images/weapons/large/IMG_0210.jpg"
 		}
   },
   "ノヴァブラスター": {
@@ -427,8 +427,8 @@
     },
     "released_at": "2017-07-21T00:00:00Z",
 		"images": {
-			"small": "small/IMG_0190.jpg",
-			"large": "large/IMG_0190.jpg"
+			"small": "https://s3-ap-northeast-1.amazonaws.com/ika2stage/images/weapons/small/IMG_0190.jpg",
+			"large": "https://s3-ap-northeast-1.amazonaws.com/ika2stage/images/weapons/large/IMG_0190.jpg"
 		}
   },
   "ホットブラスター": {
@@ -451,8 +451,8 @@
     },
     "released_at": "2017-07-21T00:00:00Z",
 		"images": {
-			"small": "small/IMG_0169.jpg",
-			"large": "large/IMG_0169.jpg"
+			"small": "https://s3-ap-northeast-1.amazonaws.com/ika2stage/images/weapons/small/IMG_0169.jpg",
+			"large": "https://s3-ap-northeast-1.amazonaws.com/ika2stage/images/weapons/large/IMG_0169.jpg"
 		}
   },
   "ホットブラスターカスタム": {
@@ -475,8 +475,8 @@
     },
     "released_at": "2017-07-21T00:00:00Z",
 		"images": {
-			"small": "small/IMG_0200.jpg",
-			"large": "large/IMG_0200.jpg"
+			"small": "https://s3-ap-northeast-1.amazonaws.com/ika2stage/images/weapons/small/IMG_0200.jpg",
+			"large": "https://s3-ap-northeast-1.amazonaws.com/ika2stage/images/weapons/large/IMG_0200.jpg"
 		}
   },
   "ヒーローブラスターレプリカ": {
@@ -499,8 +499,8 @@
     },
     "released_at": "2017-07-21T00:00:00Z",
 		"images": {
-			"small": "small/IMG_0171.jpg",
-			"large": "large/IMG_0171.jpg"
+			"small": "https://s3-ap-northeast-1.amazonaws.com/ika2stage/images/weapons/small/IMG_0171.jpg",
+			"large": "https://s3-ap-northeast-1.amazonaws.com/ika2stage/images/weapons/large/IMG_0171.jpg"
 		}
   },
   "ロングブラスター": {
@@ -523,8 +523,8 @@
     },
     "released_at": "2017-10-21T02:00:00Z",
 		"images": {
-			"small": "small/IMG_0211.jpg",
-			"large": "large/IMG_0211.jpg"
+			"small": "https://s3-ap-northeast-1.amazonaws.com/ika2stage/images/weapons/small/IMG_0211.jpg",
+			"large": "https://s3-ap-northeast-1.amazonaws.com/ika2stage/images/weapons/large/IMG_0211.jpg"
 		}
   },
   "クラッシュブラスター": {
@@ -547,8 +547,8 @@
     },
     "released_at": "2017-07-21T00:00:00Z",
 		"images": {
-			"small": "small/IMG_0203.jpg",
-			"large": "large/IMG_0203.jpg"
+			"small": "https://s3-ap-northeast-1.amazonaws.com/ika2stage/images/weapons/small/IMG_0203.jpg",
+			"large": "https://s3-ap-northeast-1.amazonaws.com/ika2stage/images/weapons/large/IMG_0203.jpg"
 		}
   },
   "ラピッドブラスター": {
@@ -571,8 +571,8 @@
     },
     "released_at": "2017-07-21T00:00:00Z",
 		"images": {
-			"small": "small/IMG_0183.jpg",
-			"large": "large/IMG_0183.jpg"
+			"small": "https://s3-ap-northeast-1.amazonaws.com/ika2stage/images/weapons/small/IMG_0183.jpg",
+			"large": "https://s3-ap-northeast-1.amazonaws.com/ika2stage/images/weapons/large/IMG_0183.jpg"
 		}
   },
   "Rブラスターエリート": {
@@ -595,8 +595,8 @@
     },
     "released_at": "2017-09-23T02:00:00Z",
 		"images": {
-			"small": "small/IMG_0212.jpg",
-			"large": "large/IMG_0212.jpg"
+			"small": "https://s3-ap-northeast-1.amazonaws.com/ika2stage/images/weapons/small/IMG_0212.jpg",
+			"large": "https://s3-ap-northeast-1.amazonaws.com/ika2stage/images/weapons/large/IMG_0212.jpg"
 		}
   },
   "L3リールガン": {
@@ -619,8 +619,8 @@
     },
     "released_at": "2017-07-21T00:00:00Z",
 		"images": {
-			"small": "small/IMG_0189.jpg",
-			"large": "large/IMG_0189.jpg"
+			"small": "https://s3-ap-northeast-1.amazonaws.com/ika2stage/images/weapons/small/IMG_0189.jpg",
+			"large": "https://s3-ap-northeast-1.amazonaws.com/ika2stage/images/weapons/large/IMG_0189.jpg"
 		}
   },
   "H3リールガン": {
@@ -643,8 +643,8 @@
     },
     "released_at": "2017-07-21T00:00:00Z",
 		"images": {
-			"small": "small/IMG_0202.jpg",
-			"large": "large/IMG_0202.jpg"
+			"small": "https://s3-ap-northeast-1.amazonaws.com/ika2stage/images/weapons/small/IMG_0202.jpg",
+			"large": "https://s3-ap-northeast-1.amazonaws.com/ika2stage/images/weapons/large/IMG_0202.jpg"
 		}
   },
   "ボトルガイザー": {
@@ -667,8 +667,8 @@
     },
     "released_at": "2017-12-22T02:00:00Z",
 		"images": {
-			"small": "small/IMG_0213.jpg",
-			"large": "large/IMG_0213.jpg"
+			"small": "https://s3-ap-northeast-1.amazonaws.com/ika2stage/images/weapons/small/IMG_0213.jpg",
+			"large": "https://s3-ap-northeast-1.amazonaws.com/ika2stage/images/weapons/large/IMG_0213.jpg"
 		}
   },
   "カーボンローラー": {
@@ -692,8 +692,8 @@
     },
     "released_at": "2017-07-21T00:00:00Z",
 		"images": {
-			"small": "small/IMG_0174.jpg",
-			"large": "large/IMG_0174.jpg"
+			"small": "https://s3-ap-northeast-1.amazonaws.com/ika2stage/images/weapons/small/IMG_0174.jpg",
+			"large": "https://s3-ap-northeast-1.amazonaws.com/ika2stage/images/weapons/large/IMG_0174.jpg"
 		}
   },
   "スプラローラー": {
@@ -717,8 +717,8 @@
     },
     "released_at": "2017-07-21T00:00:00Z",
 		"images": {
-			"small": "small/IMG_0162.jpg",
-			"large": "large/IMG_0162.jpg"
+			"small": "https://s3-ap-northeast-1.amazonaws.com/ika2stage/images/weapons/small/IMG_0162.jpg",
+			"large": "https://s3-ap-northeast-1.amazonaws.com/ika2stage/images/weapons/large/IMG_0162.jpg"
 		}
   },
   "スプラローラーコラボ": {
@@ -742,8 +742,8 @@
     },
     "released_at": "2017-07-21T00:00:00Z",
 		"images": {
-			"small": "small/IMG_0182.jpg",
-			"large": "large/IMG_0182.jpg"
+			"small": "https://s3-ap-northeast-1.amazonaws.com/ika2stage/images/weapons/small/IMG_0182.jpg",
+			"large": "https://s3-ap-northeast-1.amazonaws.com/ika2stage/images/weapons/large/IMG_0182.jpg"
 		}
   },
   "ヒーローローラーレプリカ": {
@@ -767,8 +767,8 @@
     },
     "released_at": "2017-07-21T00:00:00Z",
 		"images": {
-			"small": "small/IMG_0164.jpg",
-			"large": "large/IMG_0164.jpg"
+			"small": "https://s3-ap-northeast-1.amazonaws.com/ika2stage/images/weapons/small/IMG_0164.jpg",
+			"large": "https://s3-ap-northeast-1.amazonaws.com/ika2stage/images/weapons/large/IMG_0164.jpg"
 		}
   },
   "ダイナモローラー": {
@@ -792,8 +792,8 @@
     },
     "released_at": "2017-07-21T00:00:00Z",
 		"images": {
-			"small": "small/IMG_0191.jpg",
-			"large": "large/IMG_0191.jpg"
+			"small": "https://s3-ap-northeast-1.amazonaws.com/ika2stage/images/weapons/small/IMG_0191.jpg",
+			"large": "https://s3-ap-northeast-1.amazonaws.com/ika2stage/images/weapons/large/IMG_0191.jpg"
 		}
   },
   "ダイナモローラーテスラ": {
@@ -817,8 +817,8 @@
     },
     "released_at": "2017-10-28T02:00:00Z",
 		"images": {
-			"small": "small/IMG_0196.jpg",
-			"large": "large/IMG_0196.jpg"
+			"small": "https://s3-ap-northeast-1.amazonaws.com/ika2stage/images/weapons/small/IMG_0196.jpg",
+			"large": "https://s3-ap-northeast-1.amazonaws.com/ika2stage/images/weapons/large/IMG_0196.jpg"
 		}
   },
   "ヴァリアブルローラー": {
@@ -842,8 +842,8 @@
     },
     "released_at": "2017-07-21T00:00:00Z",
 		"images": {
-			"small": "small/IMG_0196.jpg",
-			"large": "large/IMG_0196.jpg"
+			"small": "https://s3-ap-northeast-1.amazonaws.com/ika2stage/images/weapons/small/IMG_0196.jpg",
+			"large": "https://s3-ap-northeast-1.amazonaws.com/ika2stage/images/weapons/large/IMG_0196.jpg"
 		}
   },
   "ヴァリアブルローラーフォイル": {
@@ -867,8 +867,8 @@
     },
     "released_at": "2020-12-31T02:00:00Z",
 		"images": {
-			"small": "small/IMG_0214.jpg",
-			"large": "large/IMG_0214.jpg"
+			"small": "https://s3-ap-northeast-1.amazonaws.com/ika2stage/images/weapons/small/IMG_0214.jpg",
+			"large": "https://s3-ap-northeast-1.amazonaws.com/ika2stage/images/weapons/large/IMG_0214.jpg"
 		}
   },
   "パブロ": {
@@ -891,8 +891,8 @@
     },
     "released_at": "2017-07-22T02:00:00Z",
 		"images": {
-			"small": "small/IMG_0215.jpg",
-			"large": "large/IMG_0215.jpg"
+			"small": "https://s3-ap-northeast-1.amazonaws.com/ika2stage/images/weapons/small/IMG_0215.jpg",
+			"large": "https://s3-ap-northeast-1.amazonaws.com/ika2stage/images/weapons/large/IMG_0215.jpg"
 		}
   },
   "パブロ・ヒュー": {
@@ -915,8 +915,8 @@
     },
     "released_at": "2017-11-11T02:00:00Z",
 		"images": {
-			"small": "small/IMG_0216.jpg",
-			"large": "large/IMG_0216.jpg"
+			"small": "https://s3-ap-northeast-1.amazonaws.com/ika2stage/images/weapons/small/IMG_0216.jpg",
+			"large": "https://s3-ap-northeast-1.amazonaws.com/ika2stage/images/weapons/large/IMG_0216.jpg"
 		}
   },
   "ホクサイ": {
@@ -939,8 +939,8 @@
     },
     "released_at": "2017-07-21T00:00:00Z",
 		"images": {
-			"small": "small/IMG_0179.jpg",
-			"large": "large/IMG_0179.jpg"
+			"small": "https://s3-ap-northeast-1.amazonaws.com/ika2stage/images/weapons/small/IMG_0179.jpg",
+			"large": "https://s3-ap-northeast-1.amazonaws.com/ika2stage/images/weapons/large/IMG_0179.jpg"
 		}
   },
   "ホクサイ・ヒュー": {
@@ -963,8 +963,8 @@
     },
     "released_at": "2018-01-02T02:00:00Z",
 		"images": {
-			"small": "small/IMG_0230.jpg",
-			"large": "large/IMG_0230.jpg"
+			"small": "https://s3-ap-northeast-1.amazonaws.com/ika2stage/images/weapons/small/IMG_0230.jpg",
+			"large": "https://s3-ap-northeast-1.amazonaws.com/ika2stage/images/weapons/large/IMG_0230.jpg"
 		}
   },
   "ヒーローブラシレプリカ": {
@@ -987,8 +987,8 @@
     },
     "released_at": "2017-07-21T00:00:00Z",
 		"images": {
-			"small": "small/IMG_0180.jpg",
-			"large": "large/IMG_0180.jpg"
+			"small": "https://s3-ap-northeast-1.amazonaws.com/ika2stage/images/weapons/small/IMG_0180.jpg",
+			"large": "https://s3-ap-northeast-1.amazonaws.com/ika2stage/images/weapons/large/IMG_0180.jpg"
 		}
   },
   "スクイックリンα": {
@@ -1011,8 +1011,8 @@
     },
     "released_at": "2017-08-19T02:00:00Z",
 		"images": {
-			"small": "small/IMG_0217.jpg",
-			"large": "large/IMG_0217.jpg"
+			"small": "https://s3-ap-northeast-1.amazonaws.com/ika2stage/images/weapons/small/IMG_0217.jpg",
+			"large": "https://s3-ap-northeast-1.amazonaws.com/ika2stage/images/weapons/large/IMG_0217.jpg"
 		}
   },
   "スプラチャージャー": {
@@ -1035,8 +1035,8 @@
     },
     "released_at": "2017-07-21T00:00:00Z",
 		"images": {
-			"small": "small/IMG_0163.jpg",
-			"large": "large/IMG_0163.jpg"
+			"small": "https://s3-ap-northeast-1.amazonaws.com/ika2stage/images/weapons/small/IMG_0163.jpg",
+			"large": "https://s3-ap-northeast-1.amazonaws.com/ika2stage/images/weapons/large/IMG_0163.jpg"
 		}
   },
   "スプラチャージャーコラボ": {
@@ -1059,8 +1059,8 @@
     },
     "released_at": "2017-07-21T00:00:00Z",
 		"images": {
-			"small": "small/IMG_0187.jpg",
-			"large": "large/IMG_0187.jpg"
+			"small": "https://s3-ap-northeast-1.amazonaws.com/ika2stage/images/weapons/small/IMG_0187.jpg",
+			"large": "https://s3-ap-northeast-1.amazonaws.com/ika2stage/images/weapons/large/IMG_0187.jpg"
 		}
   },
   "ヒーローチャージャーレプリカ": {
@@ -1083,8 +1083,8 @@
     },
     "released_at": "2017-07-21T00:00:00Z",
 		"images": {
-			"small": "small/IMG_0165.jpg",
-			"large": "large/IMG_0165.jpg"
+			"small": "https://s3-ap-northeast-1.amazonaws.com/ika2stage/images/weapons/small/IMG_0165.jpg",
+			"large": "https://s3-ap-northeast-1.amazonaws.com/ika2stage/images/weapons/large/IMG_0165.jpg"
 		}
   },
   "スプラスコープ": {
@@ -1107,8 +1107,8 @@
     },
     "released_at": "2017-07-21T00:00:00Z",
 		"images": {
-			"small": "small/IMG_0185.jpg",
-			"large": "large/IMG_0185.jpg"
+			"small": "https://s3-ap-northeast-1.amazonaws.com/ika2stage/images/weapons/small/IMG_0185.jpg",
+			"large": "https://s3-ap-northeast-1.amazonaws.com/ika2stage/images/weapons/large/IMG_0185.jpg"
 		}
   },
   "スプラスコープコラボ": {
@@ -1131,8 +1131,8 @@
     },
     "released_at": "2017-07-21T00:00:00Z",
 		"images": {
-			"small": "small/IMG_0198.jpg",
-			"large": "large/IMG_0198.jpg"
+			"small": "https://s3-ap-northeast-1.amazonaws.com/ika2stage/images/weapons/small/IMG_0198.jpg",
+			"large": "https://s3-ap-northeast-1.amazonaws.com/ika2stage/images/weapons/large/IMG_0198.jpg"
 		}
   },
   "リッター4K": {
@@ -1155,8 +1155,8 @@
     },
     "released_at": "2017-07-21T00:00:00Z",
 		"images": {
-			"small": "small/IMG_0192.jpg",
-			"large": "large/IMG_0192.jpg"
+			"small": "https://s3-ap-northeast-1.amazonaws.com/ika2stage/images/weapons/small/IMG_0192.jpg",
+			"large": "https://s3-ap-northeast-1.amazonaws.com/ika2stage/images/weapons/large/IMG_0192.jpg"
 		}
   },
   "リッター4Kカスタム": {
@@ -1179,8 +1179,8 @@
     },
     "released_at": "2017-10-14T02:00:00Z",
 		"images": {
-			"small": "small/IMG_0218.jpg",
-			"large": "large/IMG_0218.jpg"
+			"small": "https://s3-ap-northeast-1.amazonaws.com/ika2stage/images/weapons/small/IMG_0218.jpg",
+			"large": "https://s3-ap-northeast-1.amazonaws.com/ika2stage/images/weapons/large/IMG_0218.jpg"
 		}
   },
   "4Kスコープ": {
@@ -1203,8 +1203,8 @@
     },
     "released_at": "2017-07-21T00:00:00Z",
 		"images": {
-			"small": "small/IMG_0204.jpg",
-			"large": "large/IMG_0204.jpg"
+			"small": "https://s3-ap-northeast-1.amazonaws.com/ika2stage/images/weapons/small/IMG_0204.jpg",
+			"large": "https://s3-ap-northeast-1.amazonaws.com/ika2stage/images/weapons/large/IMG_0204.jpg"
 		}
   },
   "4Kスコープカスタム": {
@@ -1227,8 +1227,8 @@
     },
     "released_at": "2017-10-14T02:00:00Z",
 		"images": {
-			"small": "small/IMG_0219.jpg",
-			"large": "large/IMG_0219.jpg"
+			"small": "https://s3-ap-northeast-1.amazonaws.com/ika2stage/images/weapons/small/IMG_0219.jpg",
+			"large": "https://s3-ap-northeast-1.amazonaws.com/ika2stage/images/weapons/large/IMG_0219.jpg"
 		}
   },
   "14式竹筒銃・甲": {
@@ -1251,8 +1251,8 @@
     },
     "released_at": "2017-10-07T02:00:00Z",
 		"images": {
-			"small": "small/IMG_0220.jpg",
-			"large": "large/IMG_0220.jpg"
+			"small": "https://s3-ap-northeast-1.amazonaws.com/ika2stage/images/weapons/small/IMG_0220.jpg",
+			"large": "https://s3-ap-northeast-1.amazonaws.com/ika2stage/images/weapons/large/IMG_0220.jpg"
 		}
   },
   "ソイチューバー": {
@@ -1275,8 +1275,8 @@
     },
     "released_at": "2017-07-21T00:00:00Z",
 		"images": {
-			"small": "small/IMG_0194.jpg",
-			"large": "large/IMG_0194.jpg"
+			"small": "https://s3-ap-northeast-1.amazonaws.com/ika2stage/images/weapons/small/IMG_0194.jpg",
+			"large": "https://s3-ap-northeast-1.amazonaws.com/ika2stage/images/weapons/large/IMG_0194.jpg"
 		}
   },
   "バケットスロッシャー": {
@@ -1299,8 +1299,8 @@
     },
     "released_at": "2017-07-21T00:00:00Z",
 		"images": {
-			"small": "small/IMG_0170.jpg",
-			"large": "large/IMG_0170.jpg"
+			"small": "https://s3-ap-northeast-1.amazonaws.com/ika2stage/images/weapons/small/IMG_0170.jpg",
+			"large": "https://s3-ap-northeast-1.amazonaws.com/ika2stage/images/weapons/large/IMG_0170.jpg"
 		}
   },
   "バケットスロッシャーデコ": {
@@ -1323,8 +1323,8 @@
     },
     "released_at": "2017-12-15T02:00:00Z",
 		"images": {
-			"small": "small/IMG_0221.jpg",
-			"large": "large/IMG_0221.jpg"
+			"small": "https://s3-ap-northeast-1.amazonaws.com/ika2stage/images/weapons/small/IMG_0221.jpg",
+			"large": "https://s3-ap-northeast-1.amazonaws.com/ika2stage/images/weapons/large/IMG_0221.jpg"
 		}
   },
   "ヒーロースロッシャーレプリカ": {
@@ -1347,8 +1347,8 @@
     },
     "released_at": "2017-07-21T00:00:00Z",
 		"images": {
-			"small": "small/IMG_0172.jpg",
-			"large": "large/IMG_0172.jpg"
+			"small": "https://s3-ap-northeast-1.amazonaws.com/ika2stage/images/weapons/small/IMG_0172.jpg",
+			"large": "https://s3-ap-northeast-1.amazonaws.com/ika2stage/images/weapons/large/IMG_0172.jpg"
 		}
   },
   "ヒッセン": {
@@ -1371,8 +1371,8 @@
     },
     "released_at": "2017-07-21T00:00:00Z",
 		"images": {
-			"small": "small/IMG_0186.jpg",
-			"large": "large/IMG_0186.jpg"
+			"small": "https://s3-ap-northeast-1.amazonaws.com/ika2stage/images/weapons/small/IMG_0186.jpg",
+			"large": "https://s3-ap-northeast-1.amazonaws.com/ika2stage/images/weapons/large/IMG_0186.jpg"
 		}
   },
   "スクリュースロッシャー": {
@@ -1395,8 +1395,8 @@
     },
     "released_at": "2017-08-26T02:00:00Z",
 		"images": {
-			"small": "small/IMG_0222.jpg",
-			"large": "large/IMG_022.jpg"
+			"small": "https://s3-ap-northeast-1.amazonaws.com/ika2stage/images/weapons/small/IMG_0222.jpg",
+			"large": "https://s3-ap-northeast-1.amazonaws.com/ika2stage/images/weapons/large/IMG_022.jpg"
 		}
   },
   "スプラスピナー": {
@@ -1419,8 +1419,8 @@
     },
     "released_at": "2017-07-21T00:00:00Z",
 		"images": {
-			"small": "small/IMG_0195.jpg",
-			"large": "large/IMG_0195.jpg"
+			"small": "https://s3-ap-northeast-1.amazonaws.com/ika2stage/images/weapons/small/IMG_0195.jpg",
+			"large": "https://s3-ap-northeast-1.amazonaws.com/ika2stage/images/weapons/large/IMG_0195.jpg"
 		}
   },
   "バレルスピナー": {
@@ -1443,8 +1443,8 @@
     },
     "released_at": "2017-07-21T00:00:00Z",
 		"images": {
-			"small": "small/IMG_0175.jpg",
-			"large": "large/IMG_0174.jpg"
+			"small": "https://s3-ap-northeast-1.amazonaws.com/ika2stage/images/weapons/small/IMG_0175.jpg",
+			"large": "https://s3-ap-northeast-1.amazonaws.com/ika2stage/images/weapons/large/IMG_0174.jpg"
 		}
   },
   "バレルスピナーデコ": {
@@ -1467,8 +1467,8 @@
     },
     "released_at": "2017-09-16T02:00:00Z",
 		"images": {
-			"small": "small/IMG_0223.jpg",
-			"large": "large/IMG_0223.jpg"
+			"small": "https://s3-ap-northeast-1.amazonaws.com/ika2stage/images/weapons/small/IMG_0223.jpg",
+			"large": "https://s3-ap-northeast-1.amazonaws.com/ika2stage/images/weapons/large/IMG_0223.jpg"
 		}
   },
   "ヒーロースピナーレプリカ": {
@@ -1491,8 +1491,8 @@
     },
     "released_at": "2017-07-21T00:00:00Z",
 		"images": {
-			"small": "small/IMG_0176.jpg",
-			"large": "large/IMG_0176.jpg"
+			"small": "https://s3-ap-northeast-1.amazonaws.com/ika2stage/images/weapons/small/IMG_0176.jpg",
+			"large": "https://s3-ap-northeast-1.amazonaws.com/ika2stage/images/weapons/large/IMG_0176.jpg"
 		}
   },
   "ハイドラント": {
@@ -1515,8 +1515,8 @@
     },
     "released_at": "2017-11-25T02:00:00Z",
 		"images": {
-			"small": "small/IMG_0224.jpg",
-			"large": "large/IMG_0224.jpg"
+			"small": "https://s3-ap-northeast-1.amazonaws.com/ika2stage/images/weapons/small/IMG_0224.jpg",
+			"large": "https://s3-ap-northeast-1.amazonaws.com/ika2stage/images/weapons/large/IMG_0224.jpg"
 		}
   },
   "スパッタリー": {
@@ -1539,8 +1539,8 @@
     },
     "released_at": "2017-07-21T00:00:00Z",
 		"images": {
-			"small": "small/IMG_0199.jpg",
-			"large": "large/IMG_0199.jpg"
+			"small": "https://s3-ap-northeast-1.amazonaws.com/ika2stage/images/weapons/small/IMG_0199.jpg",
+			"large": "https://s3-ap-northeast-1.amazonaws.com/ika2stage/images/weapons/large/IMG_0199.jpg"
 		}
   },
   "スプラマニューバー": {
@@ -1563,8 +1563,8 @@
     },
     "released_at": "2017-07-21T00:00:00Z",
 		"images": {
-			"small": "small/IMG_0167.jpg",
-			"large": "large/IMG_0167.jpg"
+			"small": "https://s3-ap-northeast-1.amazonaws.com/ika2stage/images/weapons/small/IMG_0167.jpg",
+			"large": "https://s3-ap-northeast-1.amazonaws.com/ika2stage/images/weapons/large/IMG_0167.jpg"
 		}
   },
   "スプラマニューバーコラボ": {
@@ -1587,8 +1587,8 @@
     },
     "released_at": "2017-07-21T00:00:00Z",
 		"images": {
-			"small": "small/IMG_0181.jpg",
-			"large": "large/IMG_0181.jpg"
+			"small": "https://s3-ap-northeast-1.amazonaws.com/ika2stage/images/weapons/small/IMG_0181.jpg",
+			"large": "https://s3-ap-northeast-1.amazonaws.com/ika2stage/images/weapons/large/IMG_0181.jpg"
 		}
   },
   "ヒーローマニューバーレプリカ": {
@@ -1611,12 +1611,12 @@
     },
     "released_at": "2017-07-21T00:00:00Z",
 		"images": {
-			"small": "small/IMG_0168.jpg",
-			"large": "large/IMG_0168.jpg"
+			"small": "https://s3-ap-northeast-1.amazonaws.com/ika2stage/images/weapons/small/IMG_0168.jpg",
+			"large": "https://s3-ap-northeast-1.amazonaws.com/ika2stage/images/weapons/large/IMG_0168.jpg"
 		}
   },
   "ケルビン525": {
-		"speak": "ケルビン<say-as interpret-as=\"digits\">525</say-as>",
+		"speak": "ケルビン<say-as interpret-as=\"digits\">5 2 5</say-as>",
 		"common_name": ["ケルビン"],
     "key": "glooga_dualies",
     "type_key": "マニューバー",
@@ -1635,8 +1635,8 @@
     },
     "released_at": "2017-12-02T02:00:00Z",
 		"images": {
-			"small": "small/IMG_0225.jpg",
-			"large": "large/IMG_0225.jpg"
+			"small": "https://s3-ap-northeast-1.amazonaws.com/ika2stage/images/weapons/small/IMG_0225.jpg",
+			"large": "https://s3-ap-northeast-1.amazonaws.com/ika2stage/images/weapons/large/IMG_0225.jpg"
 		}
   },
   "デュアルスイーパー": {
@@ -1659,8 +1659,8 @@
     },
     "released_at": "2017-07-29T02:00:00Z",
 		"images": {
-			"small": "small/IMG_0226.jpg",
-			"large": "large/IMG_0226.jpg"
+			"small": "https://s3-ap-northeast-1.amazonaws.com/ika2stage/images/weapons/small/IMG_0226.jpg",
+			"large": "https://s3-ap-northeast-1.amazonaws.com/ika2stage/images/weapons/large/IMG_0226.jpg"
 		}
   },
   "パラシェルター": {
@@ -1683,8 +1683,8 @@
     },
     "released_at": "2017-08-12T02:00:00Z",
 		"images": {
-			"small": "small/IMG_0227.jpg",
-			"large": "large/IMG_0227.jpg"
+			"small": "https://s3-ap-northeast-1.amazonaws.com/ika2stage/images/weapons/small/IMG_0227.jpg",
+			"large": "https://s3-ap-northeast-1.amazonaws.com/ika2stage/images/weapons/large/IMG_0227.jpg"
 		}
   },
   "ヒーローシェルターレプリカ": {
@@ -1707,8 +1707,8 @@
     },
     "released_at": "2017-08-12T02:00:00Z",
 		"images": {
-			"small": "small/IMG_0228.jpg",
-			"large": "large/IMG_0228.jpg"
+			"small": "https://s3-ap-northeast-1.amazonaws.com/ika2stage/images/weapons/small/IMG_0228.jpg",
+			"large": "https://s3-ap-northeast-1.amazonaws.com/ika2stage/images/weapons/large/IMG_0228.jpg"
 		}
   },
   "キャンピングシェルター": {
@@ -1731,8 +1731,8 @@
     },
     "released_at": "2017-09-30T02:00:00Z",
 		"images": {
-			"small": "small/IMG_0229.jpg",
-			"large": "large/IMG_0229.jpg"
+			"small": "https://s3-ap-northeast-1.amazonaws.com/ika2stage/images/weapons/small/IMG_0229.jpg",
+			"large": "https://s3-ap-northeast-1.amazonaws.com/ika2stage/images/weapons/large/IMG_0229.jpg"
 		}
   },
   "スパイガジェット": {
@@ -1755,8 +1755,8 @@
     },
     "released_at": "2017-12-30T02:00:00Z",
 		"images": {
-			"small": "small/IMG_0231.jpg",
-			"large": "large/IMG_0231.jpg"
+			"small": "https://s3-ap-northeast-1.amazonaws.com/ika2stage/images/weapons/small/IMG_0231.jpg",
+			"large": "https://s3-ap-northeast-1.amazonaws.com/ika2stage/images/weapons/large/IMG_0231.jpg"
 		}
   }
 }

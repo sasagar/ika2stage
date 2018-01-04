@@ -1,0 +1,20 @@
+{
+  "レギュラーマッチ": {
+		"images": {
+			"small": "https://s3-ap-northeast-1.amazonaws.com/ika2stage/images/stages/small/nawabari.png",
+			"large": "https://s3-ap-northeast-1.amazonaws.com/ika2stage/images/stages/large/nawabari.png"
+		}
+  },
+	"ガチマッチ": {
+		"images": {
+			"small": "https://s3-ap-northeast-1.amazonaws.com/ika2stage/images/stages/small/gachi.png",
+			"large": "https://s3-ap-northeast-1.amazonaws.com/ika2stage/images/stages/large/gachi.png"
+		}
+  },
+	"リーグマッチ": {
+		"images": {
+			"small": "https://s3-ap-northeast-1.amazonaws.com/ika2stage/images/stages/small/league.png",
+			"large": "https://s3-ap-northeast-1.amazonaws.com/ika2stage/images/stages/large/league.png"
+		}
+  }
+}
