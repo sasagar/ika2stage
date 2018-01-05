@@ -623,6 +623,30 @@
 			"large": "https://s3-ap-northeast-1.amazonaws.com/ika2stage/images/weapons/large/IMG_0189.jpg"
 		}
   },
+  "L3リールガンD": {
+		"speak": "<say-as interpret-as\"characters\">L</say-as><say-as interpret-as\"digits\">3</say-as>リールガン<say-as interpret-as\"characters\">D</say-as>",
+		"common_name": ["L3D"],
+    "key": "l3_nozzlenose_d",
+    "type_key": "シューター",
+    "subtype_key": "リールガン",
+    "sub_key": "クイックボム",
+    "special_key": "ジェットパック",
+    "special_points": 180,
+    "unlocked_rank": 18,
+    "cost": 10400,
+    "weight": "medium",
+    "ink_consumption": 0.01,
+    "status": {
+      "range": 60,
+      "fire_rate": 65,
+      "damage": 29
+    },
+    "released_at": "2018-01-06T02:00:00Z",
+		"images": {
+			"small": "https://s3-ap-northeast-1.amazonaws.com/ika2stage/images/weapons/small/IMG_0232.jpg",
+			"large": "https://s3-ap-northeast-1.amazonaws.com/ika2stage/images/weapons/large/IMG_0232.jpg"
+		}
+  },
   "H3リールガン": {
 		"speak": "<say-as interpret-as\"characters\">H</say-as><say-as interpret-as\"digits\">3</say-as>リールガン",
 		"common_name": ["H3"],
