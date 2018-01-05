@@ -1,8 +1,8 @@
 {
   "レギュラーマッチ": {
 		"images": {
-			"small": "https://s3-ap-northeast-1.amazonaws.com/ika2stage/images/stages/small/nawabari.png",
-			"large": "https://s3-ap-northeast-1.amazonaws.com/ika2stage/images/stages/large/nawabari.png"
+			"small": "https://s3-ap-northeast-1.amazonaws.com/ika2stage/images/stages/small/regular.png",
+			"large": "https://s3-ap-northeast-1.amazonaws.com/ika2stage/images/stages/large/regular.png"
 		}
   },
 	"ガチマッチ": {

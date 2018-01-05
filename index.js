@@ -52,10 +52,18 @@ var handlers = {
 	},
 	'GetStageIntent': function () {
 		// ステージ情報を教えるIntent
-		var obj = this.event.request.intent.slots.Rule.resolutions.resolutionsPerAuthority[0].values[0];
-		// var rule = this.event.request.intent.slots.Rule.value; // スロットRuleを参照
-		var rule = obj.value.name;
+		var rule;
+		if (!this.event.request.intent.slots.Rule.resolutions) {
+			rule = 'レギュラーマッチ';
+		} else {
+			var obj = this.event.request.intent.slots.Rule.resolutions.resolutionsPerAuthority[0].values[0];
+			// var rule = this.event.request.intent.slots.Rule.value; // スロットRuleを参照
+			rule = obj.value.name;
+		}
 		var timing = this.event.request.intent.slots.Timing.value; // スロットTimingを参照
+		if (rule === undefined) {
+			rule = 'レギュラーマッチ';
+		}
 		if (timing === undefined) {
 			timing = '今';
 		}
@@ -111,11 +119,7 @@ var handlers = {
 		Promise.resolve()
 			.then(() => getWeaponJson(params))
 			.then((json) => {
-				var targetJson = json[weaponName];
-				return targetJson;
-			})
-			.then((json) => {
-				weaponJson = json;
+				weaponJson = json[weaponName];
 			})
 			.then(() => getWeaponSpeachMaker(weaponJson, weaponName))
 			.then((message) => {
@@ -126,8 +130,52 @@ var handlers = {
 				this.response.cardRenderer(card.title, card.message, card.image);
 				this.emit(':responseReady');
 			});
+	},
+	'RouletteIntent': function () {
+		var params = {
+			Bucket: bucket,
+			Key: 'weaponData.json'
+		};
+		var length;
+		var getJson;
+		var weaponJson;
+		var weaponName;
+
+		Promise.resolve()
+			.then(() => getWeaponJson(params))
+			.then((json) => {
+				getJson = json;
+				length = Object.keys(getJson).length;
+				var rand = Math.floor(Math.random() * length);
+				weaponName = getRandomWeapon(getJson, rand);
+			})
+			.then(() => {
+				weaponJson = getJson[weaponName];
+			})
+			.then(() => getWeaponSpeachMaker(weaponJson, weaponName))
+			.then((message) => {
+				var jingleMessage = '<audio src="https://s3-ap-northeast-1.amazonaws.com/ika2stage/audio/jingle.mp3" />';
+				jingleMessage += '<p><s>お薦めブキをお知らせします。</s></p>';
+				jingleMessage += message;
+				this.response.speak(jingleMessage);
+			})
+			.then(() => getWeaponCardMaker(weaponJson, weaponName))
+			.then((card) => {
+				this.response.cardRenderer('ブキルーレットによる' + card.title, card.message, card.image);
+				this.emit(':responseReady');
+			});
 	}
 };
+
+function getRandomWeapon (json, rand) {
+	var i = 0;
+	for (var key in json) {
+		if (i === rand) {
+			return key;
+		}
+		i++;
+	}
+}
 
 function getWeaponJson (params) {
 	return new Promise((resolve, reject) => {
@@ -607,7 +655,7 @@ function getButtleDuration (targetVal, nowVal, checkVal) {
 		comingMessage = '<p>このステージは、' + targetTime.hour + '時' + durationMessage1 + 'ですので、およそ' + comingInTimeD + '日後に' + durationMessage2 + '</p>';
 	} else if (comingInTimeH > 0) {
 		comingMessage = '<p>このステージは、' + targetTime.hour + '時' + durationMessage1 + 'ですので、およそ' + comingInTimeH + '時間後に' + durationMessage2 + '</p>';
-	} else if (comingInTimeD > 0) {
+	} else if (comingInTimeM > 10) {
 		comingMessage = '<p>このステージは、' + targetTime.hour + '時' + durationMessage1 + 'ですので、およそ' + comingInTimeM + '分後に' + durationMessage2 + '</p>';
 	} else {
 		comingMessage = '<p>このステージは、' + targetTime.hour + '時' + durationMessage1 + 'ですので、まもなく' + durationMessage2 + '</p>';

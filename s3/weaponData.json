@@ -240,8 +240,8 @@
 		}
   },
   "N-ZAP85": {
-		"speak": "N ZAP<say-as interpret-as=\"digits\">85</say-as>",
-		"common_name": ["ザップ85"],
+		"speak": "N ZAP<say-as interpret-as=\"digits\">8 5</say-as>",
+		"common_name": ["ザップ85","ザップ"],
     "key": "nzap85",
     "type_key": "シューター",
     "subtype_key": "シューター",
@@ -264,7 +264,7 @@
 		}
   },
   "N-ZAP89": {
-		"speak": "N ZAP<say-as interpret-as=\"digits\">89</say-as>",
+		"speak": "N ZAP<say-as interpret-as=\"digits\">8 9</say-as>",
 		"common_name": ["ザップ89"],
     "key": "nzap89",
     "type_key": "シューター",
