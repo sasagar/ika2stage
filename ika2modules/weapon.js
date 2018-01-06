@@ -55,7 +55,6 @@ const speachMaker = function (json, weaponName) {
 		} else {
 			message += '<p><s>この武器は、まだ導入されていません。</s></p>';
 		}
-
 		resolve(message);
 	});
 };
