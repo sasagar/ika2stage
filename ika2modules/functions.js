@@ -76,10 +76,22 @@ const durationFormatter = function (targetTimeA, targetTimeB) {
 	return comingIn;
 };
 
+const getValue = function (obj, key) {
+	var value = '';
+	var eventObj = obj.event.request.intent.slots[key];
+	if (eventObj.resolutions) {
+		value = eventObj.resolutions.resolutionsPerAuthority[0].values[0].value.name;
+	} else {
+		value = eventObj.value;
+	}
+	return value;
+};
+
 module.exports = {
 	getCardFormatDate: getCardFormatDate,
 	getNow: getNow,
 	getS3Json: getS3Json,
 	timeFormatter: timeFormatter,
-	durationFormatter: durationFormatter
+	durationFormatter: durationFormatter,
+	getValue: getValue
 };

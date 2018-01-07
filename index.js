@@ -83,6 +83,7 @@ var handlers = {
 		var imgJson;
 		var endPoint = apiRule[rule] + '/' + apiTiming[timing];
 		var s3Json = 'stageImage.json';
+
 		Promise.resolve()
 			.then(() => ika2.getJson(endPoint))
 			.then((json) => {
@@ -106,11 +107,9 @@ var handlers = {
 		console.log(this.event);
 	},
 	'GetWeaponDataIntent': function () {
-		var obj = this.event.request.intent.slots.WeaponName.resolutions.resolutionsPerAuthority[0].values[0];
-
 		// ブキ情報を回答するintent
-		var weaponName = obj.value.name;
-		// var weaponName = this.event.request.intent.slots.WeaponName.value; // スロットRuleを参照
+		var weaponName = ika2.functions.getValue(this, 'WeaponName');
+
 		var weaponJson;
 		var s3Json = 'weaponData.json';
 
@@ -165,11 +164,9 @@ var handlers = {
 		console.log(this.event);
 	},
 	'GetNextIntent': function () {
-		var obj = this.event.request.intent.slots.GachiRule.resolutions.resolutionsPerAuthority[0].values[0];
-
 		// 次のガチ系ルールを検索するIntent
-		var rule = obj.value.name;
-		// console.log(rule);
+		var rule = ika2.functions.getValue(this, 'GachiRule');
+
 		var endPoints = {
 			'nowGachi': 'gachi/now',
 			'nowLeague': 'league/now',
