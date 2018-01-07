@@ -21,9 +21,9 @@ const messageMaker = function (json, rule, timing) {
 		message += 'です。</p>';
 
 		if (timing === '今') {
-			durationMessage = getButtleDuration(ikaResult.end_t + 32400, now, 'end');
+			durationMessage = getButtleDuration(ikaResult.end_t, now, 'end');
 		} else {
-			durationMessage = getButtleDuration(ikaResult.start_t + 32400, now, 'start');
+			durationMessage = getButtleDuration(ikaResult.start_t, now, 'start');
 		}
 
 		message += durationMessage;
@@ -62,8 +62,8 @@ const cardMaker = function (json, rule, timing, imgJson) {
 		}
 		cardMessage += '---\n';
 
-		var start = functions.getCardFormatDate((ikaResult.start_t + 32400) * 1000);
-		var end = functions.getCardFormatDate((ikaResult.end_t + 32400) * 1000);
+		var start = functions.getCardFormatDate(ikaResult.start_t * 1000);
+		var end = functions.getCardFormatDate(ikaResult.end_t * 1000);
 
 		cardMessage += start + ' ～ ' + end;
 

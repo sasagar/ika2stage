@@ -34,7 +34,7 @@ const scheduleMessageMaker = function (json, rule) {
 	return new Promise((resolve, reject) => {
 		var message = '<p>このあと、24時間以内で' + rule + 'をプレイ出来る時間帯とルールをお伝えします。';
 		for (var j in json) {
-			var start = new Date(json[j].start_t * 1000 + 32400000);
+			var start = new Date(json[j].start_t * 1000);
 			var time = functions.timeFormatter(start);
 			if (j > 0) {
 				message += '、</s>';

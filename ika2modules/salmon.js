@@ -20,8 +20,8 @@ const responseMaker = function (json, timing) {
 
 		var now = parseInt(functions.getNow().getTime() / 1000);
 
-		var checkStart = parseInt(ikaResultA.start_t) + 32400;
-		var checkEnd = parseInt(ikaResultA.end_t) + 32400;
+		var checkStart = parseInt(ikaResultA.start_t);
+		var checkEnd = parseInt(ikaResultA.end_t);
 
 		if (now >= checkStart && now <= checkEnd) {
 			flag = 1;
@@ -57,8 +57,8 @@ const responseMaker = function (json, timing) {
 		cardTitle = 'サーモンラン: ' + cardTitleTiming + 'シフト';
 
 		// 開催時間などの情報をまとめる
-		var start = new Date(salmonResult.start_t * 1000 + 32400000);
-		var end = new Date(salmonResult.end_t * 1000 + 32400000);
+		var start = new Date(salmonResult.start_t * 1000);
+		var end = new Date(salmonResult.end_t * 1000);
 
 		var startTime = functions.timeFormatter(start);
 		var endTime = functions.timeFormatter(end);
@@ -69,7 +69,7 @@ const responseMaker = function (json, timing) {
 		} else {
 			targetTime = salmonResult.end_t;
 		}
-		var comingMessage = getSalmonDuration(targetTime + 32400, now, comingMessageFlag);
+		var comingMessage = getSalmonDuration(targetTime, now, comingMessageFlag);
 
 		// ステージについて
 		var cardStageMessage = '\n---\nステージ: \n' + salmonResult.stage.name + '\n';

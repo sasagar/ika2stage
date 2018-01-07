@@ -45,8 +45,6 @@ const getCardFormatDate = function (targetVal, yearFlag = false) {
 const getNow = function () {
 	// 現在時刻の取得
 	var dt = new Date();
-	// 日本の時間に修正
-	dt.setTime(dt.getTime() + 32400000); // 1000 * 60 * 60 * 9(hour)
 
 	// 出力
 	return dt;
