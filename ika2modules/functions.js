@@ -94,9 +94,9 @@ const durationFormatter = function (targetTimeA, targetTimeB) {
 	var comingInTime = targetTimeA - targetTimeB;
 
 	var comingIn = {
-		'D': Math.floor(comingInTime / (24 * 60 * 60)),
-		'H': Math.floor(comingInTime / (60 * 60)),
-		'M': Math.floor(comingInTime / 60)
+		'D': Math.floor((comingInTime / (24 * 60 * 60)) * 10) / 10,
+		'H': Math.floor((comingInTime / (60 * 60)) * 10) / 10,
+		'M': Math.floor(comingInTime / 60) // 分のみ整数で提供
 	};
 
 	return comingIn;
