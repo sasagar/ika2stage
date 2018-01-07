@@ -217,7 +217,7 @@
   },
   ".52ガロン": {
 		"speak": "<say-as interpret-as=\"digits\">52</say-as>ガロン",
-		"common_name": ["ゴニガロン", "<say-as interpret-as=\"digits\">52</say-as>"],
+		"common_name": ["ゴニガロン", "ゴニ", "ゴーニー"],
     "key": "gal52",
     "type_key": "シューター",
     "subtype_key": "シューター",
@@ -241,7 +241,7 @@
   },
   "N-ZAP85": {
 		"speak": "N ZAP<say-as interpret-as=\"digits\">8 5</say-as>",
-		"common_name": ["ザップ85","ザップ"],
+		"common_name": ["ザップ","ザップ85"],
     "key": "nzap85",
     "type_key": "シューター",
     "subtype_key": "シューター",
@@ -265,7 +265,7 @@
   },
   "N-ZAP89": {
 		"speak": "N ZAP<say-as interpret-as=\"digits\">8 9</say-as>",
-		"common_name": ["ザップ89"],
+		"common_name": ["ザップ89", "ハチキュウ"],
     "key": "nzap89",
     "type_key": "シューター",
     "subtype_key": "シューター",

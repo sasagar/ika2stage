@@ -1,9 +1,30 @@
 'use strict';
-// s3を利用する為の諸々
-const aws = require('aws-sdk');
-aws.config.region = 'ap-northeast-1';
-const s3 = new aws.S3();
-const bucket = 'ika2stage';
+
+const getJson = function (endpoint) {
+	// requestを使うのはコレだけ。
+	const request = require('request');
+
+	return new Promise((resolve, reject) => {
+		const options = {
+			url: 'https://spla2.yuu26.com/' + endpoint,
+			method: 'GET',
+			headers: {
+				'User-Agent': 'Ika2Stage/1.0Beta (Twitter:@sasagawaki)'
+			},
+			json: true
+		};
+
+		// コールバック関数を設定
+		request.get(options, (error, res, data) => {
+			if (!error && res.statusCode === 200) {
+				resolve(data);
+			} else {
+				var rejMessage = res.statusCode + ': ' + error;
+				reject(rejMessage);
+			}
+		});
+	});
+};
 
 const getCardFormatDate = function (targetVal, yearFlag = false) {
 	var formatDate = '';
@@ -32,6 +53,12 @@ const getNow = function () {
 };
 
 const getS3Json = function (filename) {
+	// s3を利用する為の諸々
+	const aws = require('aws-sdk');
+	aws.config.region = 'ap-northeast-1';
+	const s3 = new aws.S3();
+	const bucket = 'ika2stage';
+
 	var imageJson;
 	var params = {
 		Bucket: bucket,
@@ -89,6 +116,7 @@ const getValue = function (obj, key) {
 };
 
 module.exports = {
+	getJson: getJson,
 	getCardFormatDate: getCardFormatDate,
 	getNow: getNow,
 	getS3Json: getS3Json,

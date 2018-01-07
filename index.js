@@ -35,7 +35,7 @@ var handlers = {
 
 		// Promiseで順次進行
 		Promise.resolve()
-			.then(() => ika2.getJson(endPoint))
+			.then(() => ika2.functions.getJson(endPoint))
 			.then((json) => {
 				salmonJson = json;
 				return salmonJson;
@@ -89,7 +89,7 @@ var handlers = {
 		var s3Json = 'stageImage.json';
 
 		Promise.resolve()
-			.then(() => ika2.getJson(endPoint))
+			.then(() => ika2.functions.getJson(endPoint))
 			.then((json) => {
 				stageJson = json.result[0];
 				return stageJson;
@@ -193,10 +193,10 @@ var handlers = {
 		var message = '';
 
 		Promise.all([
-			ika2.getJson(endPoints.nowGachi),
-			ika2.getJson(endPoints.nowLeague),
-			ika2.getJson(endPoints.scheduleGachi),
-			ika2.getJson(endPoints.scheduleLeague)
+			ika2.functions.getJson(endPoints.nowGachi),
+			ika2.functions.getJson(endPoints.nowLeague),
+			ika2.functions.getJson(endPoints.scheduleGachi),
+			ika2.functions.getJson(endPoints.scheduleLeague)
 		])
 			.then((allJson) => {
 				jsons = {
