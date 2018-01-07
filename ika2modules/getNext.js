@@ -22,7 +22,7 @@ function nowMessageMaker (json, rule, game) {
 	message += '<p>ステージは、';
 	for (var i in json.maps) {
 		if (i > 0) {
-			message += '、';
+			message += 'と、';
 		}
 		message += json.maps[i];
 	}
@@ -37,7 +37,7 @@ const scheduleMessageMaker = function (json, rule) {
 			var start = new Date(json[j].start_t * 1000 + 32400000);
 			var time = functions.timeFormatter(start);
 			if (j > 0) {
-				message += '</s>';
+				message += '、</s>';
 				message += '<break time="10ms" />';
 			}
 			message += '<s>' + time.hour + '時から、' + json[j].game + 'で、ステージは、';
