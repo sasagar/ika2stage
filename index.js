@@ -46,6 +46,10 @@ var handlers = {
 				this.response.speak(result.message);
 				this.response.cardRenderer(result.card.title, result.card.message, result.card.image);
 				this.emit(':responseReady');
+			})
+			.catch((err) => {
+				console.error(err);
+				this.response.speak('情報の取得が正しく終了しませんでした。もう一度お試し下さい。');
 			});
 		console.log('salmon');
 		console.log(this.event);
@@ -102,6 +106,10 @@ var handlers = {
 			.then((card) => {
 				this.response.cardRenderer(card.title, card.message, card.image);
 				this.emit(':responseReady');
+			})
+			.catch((err) => {
+				console.error(err);
+				this.response.speak('情報の取得が正しく終了しませんでした。もう一度お試し下さい。');
 			});
 		console.log('getStage');
 		console.log(this.event);
@@ -126,6 +134,10 @@ var handlers = {
 			.then((card) => {
 				this.response.cardRenderer(card.title, card.message, card.image);
 				this.emit(':responseReady');
+			})
+			.catch((err) => {
+				console.error(err);
+				this.response.speak('情報の取得が正しく終了しませんでした。もう一度お試し下さい。');
 			});
 		console.log('getWeaponData');
 		console.log(this.event);
@@ -159,6 +171,10 @@ var handlers = {
 			.then((card) => {
 				this.response.cardRenderer('ブキルーレットによる' + card.title, card.message, card.image);
 				this.emit(':responseReady');
+			})
+			.catch((err) => {
+				console.error(err);
+				this.response.speak('情報の取得が正しく終了しませんでした。もう一度お試し下さい。');
 			});
 		console.log('roulette');
 		console.log(this.event);
@@ -219,6 +235,10 @@ var handlers = {
 				message += tmpMessage;
 				this.response.speak(message);
 				this.emit(':responseReady');
+			})
+			.catch((err) => {
+				console.error(err);
+				this.response.speak('情報の取得が正しく終了しませんでした。もう一度お試し下さい。');
 			});
 		console.log('getNext');
 		console.log(this.event.request.intent.slots);

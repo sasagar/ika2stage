@@ -41,7 +41,8 @@ const getS3Json = function (filename) {
 	return new Promise((resolve, reject) => {
 		s3.getObject(params, function (err, data) {
 			if (err) {
-				console.log(err, err.stack);
+				// console.error(err, err.stack);
+				reject(err);
 			} else {
 				imageJson = JSON.parse(data.Body.toString());
 				resolve(imageJson);

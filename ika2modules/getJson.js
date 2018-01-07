@@ -13,8 +13,13 @@ module.exports = function (endpoint) {
 
 		// コールバック関数を設定
 		request.get(options, (error, res, data) => {
-			var json = JSON.parse(data);
-			resolve(json);
+			if (!error && res.statusCode === 200) {
+				var json = JSON.parse(data);
+				resolve(json);
+			} else {
+				var rejMessage = res.statusCode + ': ' + error;
+				reject(rejMessage);
+			}
 		});
 	});
 };
