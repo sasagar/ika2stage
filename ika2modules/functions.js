@@ -113,6 +113,25 @@ const getValue = function (obj, key) {
 	return value;
 };
 
+const logging = function (obj, processName) {
+	const util = require('util');
+
+	var inspectUtil = util.inspect(obj, false, null);
+
+	console.log('Intent: ' + processName);
+	console.log(inspectUtil);
+};
+
+const errorLogging = function (obj, processName, err) {
+	const util = require('util');
+
+	var inspectUtil = util.inspect(obj, false, null);
+
+	console.error('Intent: ' + processName);
+	console.error(err);
+	console.error(inspectUtil);
+};
+
 module.exports = {
 	getJson: getJson,
 	getCardFormatDate: getCardFormatDate,
@@ -120,5 +139,7 @@ module.exports = {
 	getS3Json: getS3Json,
 	timeFormatter: timeFormatter,
 	durationFormatter: durationFormatter,
-	getValue: getValue
+	getValue: getValue,
+	logging: logging,
+	errorLogging: errorLogging
 };

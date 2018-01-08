@@ -48,11 +48,10 @@ var handlers = {
 				this.emit(':responseReady');
 			})
 			.catch((err) => {
-				console.error(err);
+				ika2.functions.errorLogging(this.event, 'salmon', err);
 				this.response.speak('情報の取得が正しく終了しませんでした。もう一度お試し下さい。');
 			});
-		console.log('salmon');
-		console.log(this.event);
+		ika2.functions.logging(this.event, 'salmon');
 	},
 	'GetStageIntent': function () {
 		// ステージ情報を教えるIntent
@@ -108,11 +107,10 @@ var handlers = {
 				this.emit(':responseReady');
 			})
 			.catch((err) => {
-				console.error(err);
+				ika2.functions.errorLogging(this.event, 'getStage', err);
 				this.response.speak('情報の取得が正しく終了しませんでした。もう一度お試し下さい。');
 			});
-		console.log('getStage');
-		console.log(this.event);
+		ika2.functions.logging(this.event, 'getStage');
 	},
 	'GetWeaponDataIntent': function () {
 		// ブキ情報を回答するintent
@@ -136,11 +134,10 @@ var handlers = {
 				this.emit(':responseReady');
 			})
 			.catch((err) => {
-				console.error(err);
+				ika2.functions.errorLogging(this.event, 'getWeaponData', err);
 				this.response.speak('情報の取得が正しく終了しませんでした。もう一度お試し下さい。');
 			});
-		console.log('getWeaponData');
-		console.log(this.event);
+		ika2.functions.logging(this.event, 'getWeaponData');
 	},
 	'RouletteIntent': function () {
 		var length;
@@ -173,11 +170,10 @@ var handlers = {
 				this.emit(':responseReady');
 			})
 			.catch((err) => {
-				console.error(err);
+				ika2.functions.errorLogging(this.event, 'roulette', err);
 				this.response.speak('情報の取得が正しく終了しませんでした。もう一度お試し下さい。');
 			});
-		console.log('roulette');
-		console.log(this.event);
+		ika2.functions.logging(this.event, 'roulette');
 	},
 	'GetNextIntent': function () {
 		// 次のガチ系ルールを検索するIntent
@@ -237,10 +233,9 @@ var handlers = {
 				this.emit(':responseReady');
 			})
 			.catch((err) => {
-				console.error(err);
+				ika2.functions.errorLogging(this.event, 'getNext', err);
 				this.response.speak('情報の取得が正しく終了しませんでした。もう一度お試し下さい。');
 			});
-		console.log('getNext');
-		console.log(this.event.request.intent.slots);
+		ika2.functions.logging(this.event, 'getNext');
 	}
 };

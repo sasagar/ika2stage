@@ -134,11 +134,11 @@ function getSalmonDuration (targetVal, nowVal, checkVal) {
 	// 開催時期をまとめる
 	var durationTime = functions.durationFormatter(targetVal, nowVal);
 
-	if (durationTime.D > 0) {
+	if (durationTime.D >= 1) {
 		comingMessage = '<p>このシフトは、およそ' + durationTime.D + '日後に' + durationMessage + '</p>';
-	} else if (durationTime.H > 0) {
+	} else if (durationTime.H >= 1) {
 		comingMessage = '<p>このシフトは、およそ' + durationTime.H + '時間後に' + durationMessage + '</p>';
-	} else if (durationTime.M > 0) {
+	} else if (durationTime.M >= 10) {
 		comingMessage = '<p>このシフトは、およそ' + durationTime.M + '分後に' + durationMessage + '</p>';
 	} else {
 		comingMessage = '<p>このシフトは、まもなく' + durationMessage + '</p>';
