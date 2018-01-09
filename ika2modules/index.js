@@ -5,5 +5,6 @@ module.exports = {
 	salmon: require('./salmon.js'),
 	lobby: require('./lobby.js'),
 	weapon: require('./weapon.js'),
-	getNext: require('./getNext.js')
+	getNext: require('./getNext.js'),
+	help: require('./help.js')
 };

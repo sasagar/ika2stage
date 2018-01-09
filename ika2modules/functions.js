@@ -103,10 +103,17 @@ const durationFormatter = function (targetTimeA, targetTimeB) {
 };
 
 const getValue = function (obj, key) {
+	const functions = require('./functions.js');
 	var value = '';
 	var eventObj = obj.event.request.intent.slots[key];
 	if (eventObj.resolutions) {
-		value = eventObj.resolutions.resolutionsPerAuthority[0].values[0].value.name;
+		if (eventObj.resolutions.resolutionsPerAuthority[0].status.code === 'ER_SUCCESS_NO_MATCH') {
+			functions.errorLogging(obj.event, 'getValue', 'ER_SUCCESS_NO_MATCH');
+			var err = new Error('キーワード取得時にエラーが発生しました。正しいキーワードか確かめて、もう一度お試し下さい。');
+			throw err;
+		} else {
+			value = eventObj.resolutions.resolutionsPerAuthority[0].values[0].value.name;
+		}
 	} else {
 		value = eventObj.value;
 	}

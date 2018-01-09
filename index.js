@@ -19,8 +19,12 @@ var handlers = {
 	},
 	// スキルの使い方を尋ねるインテント
 	'AMAZON.HelpIntent': function () {
-		this.emit(':tell', 'スプラトゥーン2についてお調べします。' +
-			'たとえば、「イカ ツー で、今のガチマッチのステージを教えて」、「イカ ツー で、次のサーモンランのシフト」、「イカ ツー で、スプラローラーについて教えて」、と聞いて下さい。');
+		var message = ika2.help.createHelpMessage();
+		this.response.speak(message);
+
+		var card = ika2.help.createHelpCard();
+		this.response.cardRenderer(card.title, card.message);
+		this.emit(':responseReady');
 	},
 	// 対話モデルで定義した、スキル実行するインテント
 	'GetSalmonIntent': function () {
@@ -50,6 +54,7 @@ var handlers = {
 			.catch((err) => {
 				ika2.functions.errorLogging(this.event, 'salmon', err);
 				this.response.speak('情報の取得が正しく終了しませんでした。もう一度お試し下さい。');
+				this.emit(':responseReady');
 			});
 		ika2.functions.logging(this.event, 'salmon');
 	},
@@ -59,8 +64,13 @@ var handlers = {
 		if (!this.event.request.intent.slots.Rule.resolutions) {
 			rule = 'レギュラーマッチ';
 		} else {
-			var obj = this.event.request.intent.slots.Rule.resolutions.resolutionsPerAuthority[0].values[0];
-			rule = obj.value.name;
+			try {
+				rule = ika2.functions.getValue(this, 'Rule');
+			} catch (err) {
+				ika2.functions.errorLogging(this.event, 'getStageIntent', err);
+				this.response.speak(err);
+				this.emit(':responseReady');
+			}
 		}
 		var timing = this.event.request.intent.slots.Timing.value; // スロットTimingを参照
 		if (rule === undefined) {
@@ -109,12 +119,19 @@ var handlers = {
 			.catch((err) => {
 				ika2.functions.errorLogging(this.event, 'getStage', err);
 				this.response.speak('情報の取得が正しく終了しませんでした。もう一度お試し下さい。');
+				this.emit(':responseReady');
 			});
 		ika2.functions.logging(this.event, 'getStage');
 	},
 	'GetWeaponDataIntent': function () {
 		// ブキ情報を回答するintent
-		var weaponName = ika2.functions.getValue(this, 'WeaponName');
+		try {
+			var weaponName = ika2.functions.getValue(this, 'WeaponName');
+		} catch (err) {
+			ika2.functions.errorLogging(this.event, 'getWeaponData', err);
+			this.response.speak(err);
+			this.emit(':responseReady');
+		}
 
 		var weaponJson;
 		var s3Json = 'weaponData.json';
@@ -136,6 +153,7 @@ var handlers = {
 			.catch((err) => {
 				ika2.functions.errorLogging(this.event, 'getWeaponData', err);
 				this.response.speak('情報の取得が正しく終了しませんでした。もう一度お試し下さい。');
+				this.emit(':responseReady');
 			});
 		ika2.functions.logging(this.event, 'getWeaponData');
 	},
@@ -172,12 +190,19 @@ var handlers = {
 			.catch((err) => {
 				ika2.functions.errorLogging(this.event, 'roulette', err);
 				this.response.speak('情報の取得が正しく終了しませんでした。もう一度お試し下さい。');
+				this.emit(':responseReady');
 			});
 		ika2.functions.logging(this.event, 'roulette');
 	},
 	'GetNextIntent': function () {
 		// 次のガチ系ルールを検索するIntent
-		var rule = ika2.functions.getValue(this, 'GachiRule');
+		try {
+			var rule = ika2.functions.getValue(this, 'GachiRule');
+		} catch (err) {
+			ika2.functions.errorLogging(this.event, 'getWeaponData', err);
+			this.response.speak(err);
+			this.emit(':responseReady');
+		}
 
 		var endPoints = {
 			'nowGachi': 'gachi/now',
@@ -235,6 +260,7 @@ var handlers = {
 			.catch((err) => {
 				ika2.functions.errorLogging(this.event, 'getNext', err);
 				this.response.speak('情報の取得が正しく終了しませんでした。もう一度お試し下さい。');
+				this.emit(':responseReady');
 			});
 		ika2.functions.logging(this.event, 'getNext');
 	}
